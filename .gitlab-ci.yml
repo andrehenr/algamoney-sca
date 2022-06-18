@@ -1,0 +1,10 @@
+stages:          
+  - build
+
+build-job:      
+  stage: build
+  tags:
+      - sca
+
+  script:
+    - scancentral -sscurl $SSC_URL -ssctoken $SSC_TOKEN start -bt mvn -upload -application $SSC_APP -version $SSC_PV -uptoken $SSC_TOKEN
